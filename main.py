@@ -1,14 +1,14 @@
 # main.py
 
 from gmail_service import enviar_correo
-from country_service import get_country_data
-from weather_service import get_weather
-from news_service import get_news
+from country_service import obtener_info_pais
+from weather_service import obtener_clima
+from .news_service import NewsService
 
 def generar_reporte():
-    country_data = get_country_data('CL')  # Chile
-    weather = get_weather('Santiago')
-    noticias = get_news('Chile')
+    country_data = obtener_info_pais('CL')  # Chile
+    weather = obtener_clima('Santiago')
+    noticias = NewsService('Chile')
 
     reporte = f"""🧾 REPORTE AUTOMÁTICO:
     
