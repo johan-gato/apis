@@ -46,6 +46,23 @@ class NewsService:
         response = requests.get(url, params=params)
         return self._handle_response(response)
 
+    def search_news(self, query, from_date=None, to_date=None, language="es", page=1, page_size=20):
+        url = f"{self.base_url}/everything"
+        params = {
+            "apiKey": self.api_key,
+            "q": query,
+            "language": language,
+            "page": page,
+            "pageSize": page_size
+        }
+        if from_date:
+            params["from"] = from_date
+        if to_date:
+            params["to"] = to_date
+
+        response = requests.get(url, params=params)
+        return self._handle_response(response)
+
     def resumen_noticias(self):
         datos = self.get_top_headlines()
         if not datos or not datos.get("articles"):
