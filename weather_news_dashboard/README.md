@@ -81,7 +81,7 @@ python weather_service.py
 python country_service.py
 
 python main.py
-python -m weather_news_dashboard.test
+python -m weather_news_dashboard.test_news
 
 ## 📤 Salida del Programa
 Información meteorológica y noticias por consola.
