@@ -2,7 +2,7 @@
 import json
 from datetime import datetime
 from news_service import NewsService
-from weather_service import WeatherService
+from weather_news_dashboard.weather_service import WeatherService
 from country_service import CountryService
 
 def main():
