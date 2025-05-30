@@ -34,22 +34,16 @@ def correlacionar_noticias_con_clima(noticias, clima_descripcion):
     
     return noticias_relacionadas
 
-def main():
-    country_code = input("Ingrese el código del país (ej: cl, us, ar): ").strip().lower()
+def main(country_code, ciudad):
+    country_code = country_code.strip().lower()
+    ciudad = ciudad.strip()
 
     # Inicializar servicios
     news_service = NewsService()
     weather_service = WeatherService()
-    country_service = CountryService()
-
-    # Obtener capital
-    capital = country_service.get_capital_by_country_code(country_code)
-    if not capital:
-        print(f"No se encontró la capital para el país '{country_code}'")
-        return
 
     # Obtener clima
-    weather = weather_service.get_weather(capital)
+    weather = weather_service.get_weather(ciudad)
     if not weather:
         print("No se pudo obtener información del clima.")
         return
@@ -70,7 +64,7 @@ def main():
 
     # Mostrar en consola
     print("\n===== DASHBOARD DEL DÍA =====")
-    print(f"🌍 País: {country_code.upper()} | Capital: {capital}")
+    print(f"🌍 País: {country_code.upper()} | Ciudad: {ciudad}")
     print(f"{icono_clima} Clima: {weather.get('descripcion', '').capitalize()} | Temp: {weather.get('temperatura', '')}°C\n")
 
     print("📰 Principales noticias:")
@@ -88,7 +82,7 @@ def main():
     reporte = {
         "fecha": datetime.now().isoformat(),
         "pais": country_code.upper(),
-        "capital": capital,
+        "ciudad": ciudad,
         "clima": weather,
         "noticias": noticias[:5],
         "noticias_relacionadas_con_clima": relacionadas
@@ -101,7 +95,7 @@ def main():
     # Exportar a TXT
     with open("reporte_diario.txt", "w", encoding="utf-8") as f:
         f.write(f"Reporte Diario - {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
-        f.write(f"País: {country_code.upper()} | Capital: {capital}\n")
+        f.write(f"País: {country_code.upper()} | Ciudad: {ciudad}\n")
         f.write(f"Clima: {weather.get('descripcion', '').capitalize()} | Temp: {weather.get('temperatura', '')}°C\n\n")
         f.write("Principales noticias:\n")
         for i, article in enumerate(noticias[:5], 1):
@@ -114,5 +108,4 @@ def main():
 
     print("✅ Reportes guardados en 'reporte_diario.json' y 'reporte_diario.txt'")
 
-if __name__ == "__main__":
-    main()
+# No se ejecuta solo, se llama desde main.py

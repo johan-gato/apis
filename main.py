@@ -38,9 +38,12 @@ def pedir_programacion_envio():
         return datetime.now()
 
 if __name__ == "__main__":
+    pais = input("🌎 Ingresa el código del país (ej: cl, us, ar): ").strip()
+    ciudad = input("🏙️ Ingresa la ciudad a consultar (ej: Santiago, New York, Buenos Aires): ").strip()
+
     print("🔧 Generando reporte desde dashboard.py ...")
     try:
-        generar_dashboard()
+        generar_dashboard(pais, ciudad)
         if not os.path.exists("reporte_diario.txt"):
             print("❌ reporte_diario.txt no encontrado. Verifica dashboard.py.")
             exit(1)

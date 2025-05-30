@@ -1,13 +1,13 @@
 {
-    "fecha": "2025-05-30T13:39:39.213525",
-    "pais": "AR",
-    "capital": "Buenos Aires",
+    "fecha": "2025-05-30T14:01:10.702006",
+    "pais": "CL",
+    "ciudad": "la serena",
     "clima": {
-        "ciudad": "Buenos Aires",
-        "temperatura": 14.13,
-        "humedad": 53,
+        "ciudad": "La Serena",
+        "temperatura": 16.73,
+        "humedad": 63,
         "descripcion": "cielo claro",
-        "viento": 8.05
+        "viento": 3.6
     },
     "noticias": [
         {
