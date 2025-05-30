@@ -1,15 +1,16 @@
-```gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
 
-# Virtual environment
+# Virtual environments
 venv/
 ENV/
 env/
 .venv/
+
+# Dotenv environment variables file
 .env
 
 # Distribution / packaging
@@ -21,9 +22,6 @@ dist/
 # PyInstaller
 *.manifest
 *.spec
-
-# dotenv environment variables file
-.env
 
 # IDEs and editors
 .vscode/
@@ -37,3 +35,7 @@ dist/
 # Logs and databases
 *.log
 *.sqlite3
+
+# Archivos de reporte
+reporte_diario.json
+reporte_diario.txt

@@ -1,90 +1,80 @@
-# 🌦️ Weather News Dashboard
+# Weather News Dashboard
 
-Proyecto de integración de APIs que permite visualizar información meteorológica y noticias recientes según el país seleccionado. Utiliza OpenWeatherMap, NewsAPI y REST Countries, y genera un reporte diario en formato JSON.
+## Descripción
 
----
+`weather_news_dashboard` es una aplicación en Python que combina información meteorológica y noticias relevantes para un país seleccionado, generando un reporte diario. Este reporte se muestra por consola, se guarda en formato JSON y texto plano, y ofrece una correlación inteligente entre el clima actual y noticias relacionadas.
 
-## 🧑‍💻 Integrantes
+## Funcionalidades
 
-- Integrante 1: [Johan] – Clima y servicio REST Countries  
-- Integrante 2: [Mauricio] – Noticias, Dashboard y Git**  
-- Integrante 3: [David] – Reportes JSON, Gmail API y validación  
+- Consulta el clima actual de la capital de un país ingresado.
+- Obtiene las principales noticias del país, o noticias relacionadas si no hay titulares destacados.
+- Correlaciona noticias relevantes con la descripción del clima.
+- Genera un reporte diario combinando clima y noticias.
+- Exporta el reporte a archivos JSON y TXT.
+- Interfaz sencilla de línea de comandos.
 
----
+## Requisitos
 
-## 🧰 Tecnologías y Librerías
+- Python 3.7+
+- Paquetes Python: `requests`, `python-dotenv`
+- Claves API necesarias:
+  - **OpenWeatherMap API Key** (para datos meteorológicos)
+  - **NewsAPI Key** (para noticias)
+- Archivo `.env` con las variables de entorno:
 
-- Python 3.x  
-- `requests`  
-- `python-dotenv`  
-- `smtplib` (para envío de correo)  
-- `json`, `os`, `datetime`  
-- APIs: OpenWeatherMap, NewsAPI, REST Countries, Gmail API  
-
----
-
-## 📦 Estructura del Proyecto
-
-weather_news_dashboard/
-├── main.py
-├── config.py
-├── weather_service.py
-├── news_service.py
-├── country_service.py
-├── dashboard.py
-├── reporte_diario.json
-├── .env
-├── .gitignore
-└── requirements.txt
+OPENWEATHERMAP_API_KEY=tu_api_key_aqui
+NEWS_API_KEY=tu_api_key_aqui
 
 
+## Instalación
 
----
+1. Clona el repositorio:
 
-## 🌍 APIs Utilizadas
+```bash
+git clone https://github.com/tu_usuario/weather_news_dashboard.git
+cd weather_news_dashboard/apis
 
-| API             | Función                          | URL                                               |
-|-----------------|---------------------------------|--------------------------------------------------|
-| NewsAPI         | Obtener titulares y noticias     | https://newsapi.org                              |
-| OpenWeatherMap  | Clima actual                    | https://openweathermap.org/api                   |
-| REST Countries  | Información de países            | https://restcountries.com                         |
-| Gmail API       | Envío automático de correos      | https://developers.google.com/gmail/api          |
-
----
-
-## ⚙️ Instrucciones de Instalación
-
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/usuario/weather_news_dashboard.git
-   cd weather_news_dashboard
-
-
-## Crear y activar entorno virtual
-
+## Crea y activa un entorno virtual:
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-.\venv\Scripts\activate   # Windows PowerShell
+source venv/bin/activate   # Linux/macOS
+venv\Scripts\activate      # Windows
 
 ## Instalar dependencias:
 pip install -r requirements.txt
 
-## Crear archivo .env en la raíz con tus claves API
-NEWS_API_KEY=tu_clave_newsapi
-OPENWEATHERMAP_API_KEY=tu-clave
-WEATHER_API_KEY=tu_clave_openweathermap
-EMAIL_ADDRESS=correo_del_grupo@gmail.com
-EMAIL_PASSWORD=clave_o_contraseña_de_aplicacion
+## Constraseñas:
+Crea el archivo .env con tus claves de API en la misma carpeta del código.
 
-## 🚀 Uso
-python weather_service.py
-python country_service.py
-python main.py
-python -m weather_news_dashboard.test_news
+## Uso
+## Ejecuta el dashboard desde la terminal:
+python dashboard.py
 
-## 📤 Salida del Programa
-Información meteorológica y noticias por consola.
+Se solicitará el código ISO del país (ejemplo: cl para Chile, us para Estados Unidos).
+El programa mostrará un reporte diario en consola y generará los archivos:
+reporte_diario.json
+reporte_diario.txt
 
-Archivo reporte_diario.json con resumen del día.
+weather_news_dashboard/
+├── apis/
+│   ├── dashboard.py
+│   ├── news_service.py
+│   ├── weather_service.py
+│   ├── country_service.py
+│   ├── config.py
+│   ├── requirements.txt
+│   └── .env
+└── README.md
 
-(Opcional) Envío de correo con los datos — pendiente por implementar.
+## API Keys
+OpenWeatherMap: https://openweathermap.org/api
+NewsAPI: https://newsapi.org/
+
+Obtén tus claves gratuitas registrándote en cada servicio.
+
+---
+## ✅ requirements.txt (contenido para copiar)
+
+```txt
+requests
+python-dotenv
+
