@@ -1,8 +1,8 @@
 import requests
-from config import WEATHER_API_KEY
+from config import OPENWEATHERMAP_API_KEY
 
 def obtener_clima(ciudad):
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={ciudad}&appid={WEATHER_API_KEY}&units=metric&lang=es"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={ciudad}&appid={OPENWEATHERMAP_API_KEY}&units=metric&lang=es"
     respuesta = requests.get(url)
     
     if respuesta.status_code != 200:

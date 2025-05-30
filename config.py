@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
+OPENWEATHERMAP_API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")  
 
 EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')

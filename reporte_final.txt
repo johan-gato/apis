@@ -1,0 +1,10 @@
+🧾 REPORTE AUTOMÁTICO:
+
+🌎 Datos del país:
+{'nombre': 'Chile', 'capital': 'Santiago', 'poblacion': 19116209, 'moneda': 'CLP'}
+
+🌤️ Clima actual:
+{'ciudad': 'Santiago', 'temperatura': 16.15, 'humedad': 54, 'descripcion': 'cielo claro', 'viento': 2.06}
+
+📰 Noticias destacadas:
+No se encontraron noticias.
