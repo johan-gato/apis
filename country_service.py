@@ -15,3 +15,13 @@ def obtener_info_pais(nombre_pais):
         "moneda": list(datos["currencies"].keys())[0]
     }
     return resultado
+
+if __name__ == "__main__":
+    pais = input("Ingresa el nombre del país (ej: Chile, Argentina): ").strip()
+    try:
+        info = obtener_info_pais(pais)
+        print("\nInformación del país:")
+        for clave, valor in info.items():
+            print(f"{clave.capitalize()}: {valor}")
+    except Exception as e:
+        print(f"❌ Error: {e}")

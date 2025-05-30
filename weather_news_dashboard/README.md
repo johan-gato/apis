@@ -77,8 +77,8 @@ EMAIL_ADDRESS=correo_del_grupo@gmail.com
 EMAIL_PASSWORD=clave_o_contraseña_de_aplicacion
 
 ## 🚀 Uso
-python services/weather_service.py
-python services/country_service.py
+python weather_service.py
+python country_service.py
 
 python main.py
 python -m weather_news_dashboard.test
