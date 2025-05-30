@@ -1,4 +1,4 @@
-from .news_service import NewsService
+from .weather_news_dashboard.news_service import NewsService
 
 def main():
     news_service = NewsService()
