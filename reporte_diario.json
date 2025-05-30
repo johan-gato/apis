@@ -1,13 +1,13 @@
 {
-    "fecha": "2025-05-30T13:23:34.905029",
-    "pais": "CL",
-    "capital": "Santiago",
+    "fecha": "2025-05-30T13:39:39.213525",
+    "pais": "AR",
+    "capital": "Buenos Aires",
     "clima": {
-        "ciudad": "Santiago",
-        "temperatura": 18.18,
-        "humedad": 47,
+        "ciudad": "Buenos Aires",
+        "temperatura": 14.13,
+        "humedad": 53,
         "descripcion": "cielo claro",
-        "viento": 2.06
+        "viento": 8.05
     },
     "noticias": [
         {

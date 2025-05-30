@@ -1,106 +1,76 @@
 import time
 from datetime import datetime, timedelta
-from gmail_service import enviar_correo
-from country_service import obtener_info_pais
-from weather_service import obtener_clima
-from news_service import NewsService
 import re
+import os
+from dashboard import main as generar_dashboard
+from gmail_service import enviar_correo
 
 def validar_correo(correo):
     patron = r'^[\w\.-]+@[\w\.-]+\.\w+$'
     return re.match(patron, correo) is not None
 
-def generar_reporte():
-    country_data = obtener_info_pais('CL')  # Chile
-    weather = obtener_clima('Santiago')
-
-    news_service = NewsService()
-    noticias_data = news_service.get_top_headlines(country="cl", page_size=5)
-
-    if not noticias_data or noticias_data.get("totalResults", 0) == 0:
-        print("No hay resultados en top-headlines. Buscando con search_news...")
-        noticias_data = news_service.search_news(query="Chile", page_size=5)
-
-    noticias = noticias_data.get("articles", [])[:5] if noticias_data else []
-
-    noticias_texto = "\n".join(
-        [f"- {noticia['title']} ({noticia.get('source', {}).get('name', 'Desconocido')})" for noticia in noticias]
-    ) if noticias else "No se encontraron noticias."
-
-    reporte = f"""🧾 REPORTE AUTOMÁTICO:
-
-🌎 Datos del país:
-{country_data}
-
-🌤️ Clima actual:
-{weather}
-
-📰 Noticias destacadas:
-{noticias_texto}
-"""
-    return reporte
-
 def pedir_programacion_envio():
     print("\n📤 ¿Cuándo deseas enviar el correo?")
     print("1. Ahora mismo")
     print("2. En X minutos")
-    print("3. En una fecha y hora específica (formato: DD-MM-YYYY HH:MM)")
+    print("3. En una fecha y hora específica (DD-MM-YYYY HH:MM)")
 
-    opcion = input("Selecciona una opción (1/2/3): ").strip()
+    opcion = input("Selecciona opción (1/2/3): ").strip()
 
     if opcion == "1":
         return datetime.now()
     elif opcion == "2":
         try:
-            minutos = int(input("¿Cuántos minutos quieres esperar? ").strip())
+            minutos = int(input("¿Cuántos minutos? ").strip())
             return datetime.now() + timedelta(minutes=minutos)
         except ValueError:
-            print("❌ Valor inválido. Se enviará ahora.")
+            print("❌ Valor inválido. Enviando ahora.")
             return datetime.now()
     elif opcion == "3":
         try:
-            fecha_hora = input("Ingresa la fecha y hora (ejemplo: 31-05-2025 08:00): ").strip()
+            fecha_hora = input("Fecha y hora (ej: 31-05-2025 08:00): ").strip()
             return datetime.strptime(fecha_hora, "%d-%m-%Y %H:%M")
         except ValueError:
-            print("❌ Formato incorrecto. Se enviará ahora.")
+            print("❌ Formato inválido. Enviando ahora.")
             return datetime.now()
     else:
-        print("❌ Opción inválida. Se enviará ahora.")
+        print("❌ Opción inválida. Enviando ahora.")
         return datetime.now()
 
 if __name__ == "__main__":
-    print("🔧 Generando reporte completo...")
+    print("🔧 Generando reporte desde dashboard.py ...")
     try:
-        reporte = generar_reporte()
+        generar_dashboard()
+        if not os.path.exists("reporte_diario.txt"):
+            print("❌ reporte_diario.txt no encontrado. Verifica dashboard.py.")
+            exit(1)
 
-        with open("reporte_final.txt", "w", encoding='utf-8') as archivo:
-            archivo.write(reporte)
+        with open("reporte_diario.txt", "r", encoding="utf-8") as f:
+            reporte = f.read()
 
-        print("✅ Reporte generado. Guardado en reporte_final.txt.\n")
+        print("✅ Reporte generado.\n")
     except Exception as e:
-        print(f"❌ Error generando el reporte: {e}")
+        print(f"❌ Error generando reporte: {e}")
         exit(1)
 
-    destinatario = input("✉️ Ingresa el correo del destinatario: ").strip()
+    destinatario = input("✉️ Correo destinatario: ").strip()
     if not destinatario or not validar_correo(destinatario):
-        print("❌ Debes ingresar un correo válido.")
+        print("❌ Correo inválido.")
         exit(1)
 
     momento_envio = pedir_programacion_envio()
     espera = (momento_envio - datetime.now()).total_seconds()
 
     if espera > 0:
-        print(f"\n⏳ Esperando {round(espera/60, 2)} minutos para enviar el correo...")
+        print(f"⏳ Esperando {round(espera/60,2)} minutos para enviar correo...")
         time.sleep(espera)
 
     print("📨 Enviando correo...")
     try:
         enviar_correo(reporte, destinatario)
+        print("✅ Correo enviado exitosamente.")
     except Exception as e:
-        # Aquí detectamos y mostramos el error pero sin repetir el mensaje
-        error_msg = str(e)
-        if "535" in error_msg:
-            print("❌ Error de autenticación SMTP: Revisa usuario, contraseña y contraseña de aplicación.")
-            print("Más info: https://support.google.com/mail/?p=BadCredentials")
+        if "535" in str(e):
+            print("❌ Error autenticación SMTP: revisa usuario y contraseña.")
         else:
-            print(f"❌ Error al enviar el correo: {e}")
+            print(f"❌ Error enviando correo: {e}")
