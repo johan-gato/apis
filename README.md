@@ -1,5 +1,15 @@
 # Dashboard Clima y Noticias - Configuración de Servicios
 
+# Proyecto APIs en Python
+
+Este proyecto utiliza 3 APIs:
+- OpenWeatherMap para obtener el clima actual y el pronóstico.
+- NewsAPI para consultar noticias en Chile.
+- RestCountries para obtener información de un país
+
+
+
+
 ## Instrucciones para ejecutar
 
 1. Clona el proyecto y cambia a tu rama:

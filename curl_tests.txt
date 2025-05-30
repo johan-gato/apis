@@ -1,0 +1,108 @@
+# Resultados de Pruebas con curl
+
+---
+
+1. Clima Actual - La Serena (OpenWeatherMap)
+
+curl "http://api.openweathermap.org/data/2.5/weather?q=La%20Serena,CL&appid=877646768a650724c586fa601fcec1f7&units=metric&lang=es"
+
+Respuesta:
+- StatusCode: 200 OK
+- Contenido (JSON parcial):
+{
+  "coord": {"lon": -71.2542, "lat": -29.9078},
+  "weather": [{"id":800, "main":"Clear", "description":"cielo claro", "icon":"01n"}],
+  "main": {"temp": 8.73, "feels_like": 8.73, "temp_min": 8.73, "temp_max": 8.73},
+  ...
+}
+
+---
+
+2. Noticias en Chile (NewsAPI)
+
+curl "https://newsapi.org/v2/top-headlines?country=cl&apiKey=fa39869a370d4a49a7c8deafba0c1123"
+
+Respuesta:
+- StatusCode: 200 OK
+- Contenido:
+{
+  "status": "ok",
+  "totalResults": 0,
+  "articles": []
+}
+
+(No se encontraron noticias para esta consulta.)
+
+---
+
+3. Información País Chile (RestCountries)
+
+curl "https://restcountries.com/v3.1/name/chile"
+
+Respuesta:
+- StatusCode: 200 OK
+- Contenido (JSON parcial):
+[
+  {
+    "name": {
+      "common": "Chile",
+      "official": "Republic of Chile",
+      "nativeName": {
+        "spa": {"official": "República de Chile", "common": "Chile"}
+      }
+    },
+    "tld": [".cl"],
+    "cca2": "CL",
+    ...
+  }
+]
+
+---
+
+4. Pronóstico Clima - La Serena (OpenWeatherMap)
+
+curl "http://api.openweathermap.org/data/2.5/forecast?q=La%20Serena,CL&appid=877646768a650724c586fa601fcec1f7&units=metric&lang=es"
+
+Respuesta:
+- StatusCode: 200 OK
+- Contenido (JSON parcial):
+{
+  "cod": "200",
+  "message": 0,
+  "cnt": 40,
+  "list": [
+    {
+      "dt": 1748595600,
+      "main": {
+        "temp": 9.98,
+        "feels_like": 9.98,
+        ...
+      },
+      ...
+    }
+  ]
+}
+
+---
+
+5. Noticias Tecnología en Chile (NewsAPI)
+
+curl "https://newsapi.org/v2/top-headlines?country=cl&category=technology&apiKey=fa39869a370d4a49a7c8deafba0c1123"
+
+Respuesta:
+- StatusCode: 200 OK
+- Contenido:
+{
+  "status": "ok",
+  "totalResults": 0,
+  "articles": []
+}
+
+(No se encontraron noticias para esta consulta.)
+
+---
+
+# Notas
+- Todos los endpoints responden con código 200, indicando que las solicitudes fueron exitosas.
+- Las APIs de noticias no entregaron artículos, probablemente por falta de noticias en esa categoría o país.
+- Los datos de clima y país retornan JSON con información útil y clara.
