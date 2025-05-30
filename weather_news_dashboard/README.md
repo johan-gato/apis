@@ -1,75 +1,96 @@
-# Weather & News Dashboard 🌦️📰
+# 🌦️ Weather News Dashboard
 
-Una aplicación en Python que permite consultar noticias recientes por país utilizando la API de NewsAPI.
+Proyecto de integración de APIs que permite visualizar información meteorológica y noticias recientes según el país seleccionado. Utiliza OpenWeatherMap, NewsAPI y REST Countries. También genera un reporte diario en formato JSON.
 
-## 🚀 Características
+---
 
-- Obtener titulares principales (`top-headlines`) por país.
-- Si no hay titulares, buscar artículos usando el nombre del país como término de búsqueda.
-- Interfaz por consola sencilla.
-- Configuración segura de claves API con `.env`.
+## 🧑‍💻 Integrantes
 
-## 📁 Estructura del Proyecto
+- Integrante 1: [Nombre] – Clima y servicio REST Countries
+- **Integrante 2: [Tu nombre] – Noticias, Dashboard y Git**
+- Integrante 3: [Nombre] – Reportes JSON, Gmail API y validación
 
+---
 
-## ⚙️ Instalación
+## 🧰 Tecnologías y Librerías
 
-1. Clona este repositorio:
+- Python 3.x
+- `requests`
+- `python-dotenv`
+- `smtplib` (para correo)
+- `json`, `os`, `datetime`
+- APIs: OpenWeatherMap, NewsAPI, REST Countries, Gmail API
 
-```bash
-git clone https://github.com/tu_usuario/weather_news_dashboard.git
-cd weather_news_dashboard
+---
 
-#Creacion entorno virtual(Opcional)
+## 📦 Estructura del Proyecto
 
-python -m venv venv
-source venv/bin/activate  # En Linux/macOS
-venv\Scripts\activate     # En Windows
+weather_news_dashboard/
+├── main.py
+├── config.py
+├── weather_service.py
+├── news_service.py
+├── country_service.py
+├── dashboard.py
+├── reporte_diario.json
+├── .env
+├── .gitignore
+└── requirements.txt
 
-
-dependencia
-pip install -r requirements.txt
-
-crear .env y agregar key
-NEWS_API_KEY=tu_api_key_aquí
-
-ejecucion
-python -m weather_news_dashboard.test
-
-🧰 Tecnologías
-Python 3.9+
-
-NewsAPI.org
-
-requests
-
-python-dotenv
-
-📌 Notas
-Asegúrate de no subir el archivo .env a ningún repositorio público.
-
-El proyecto está diseñado para ser fácilmente expandido a futuras integraciones como clima, exportación JSON o envío de reportes por correo.
-
-📜 Licencia
-Este proyecto está licenciado bajo los términos de la licencia MIT.
 
 
 ---
 
-## ✅ 2. `.gitignore`
+## 🌍 APIs Utilizadas
 
-Asegúrate de que este archivo esté en la raíz del proyecto para evitar subir archivos no deseados:
+| API             | Función                          | URL                             |
+|----------------|----------------------------------|---------------------------------|
+| NewsAPI        | Obtener titulares y noticias     | https://newsapi.org             |
+| OpenWeatherMap | Clima actual                     | https://openweathermap.org/api  |
+| REST Countries | Información de países            | https://restcountries.com       |
+| Gmail API      | Envío automático de correos      | https://developers.google.com/gmail/api |
 
-```gitignore
-# Entorno virtual
-venv/
-.env
+---
 
-# Archivos Python
-__pycache__/
-*.pyc
+## ⚙️ Instrucciones de Instalación
 
-# Archivos de sistema
-.DS_Store
-Thumbs.db
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/usuario/weather_news_dashboard.git
+   cd weather_news_dashboard
 
+## Crear entorno virtual
+
+python -m venv venv
+source venv/bin/activate  # o .\venv\Scripts\activate en Windows
+
+## Instalar dependencias
+
+pip install -r requirements.txt
+
+
+## Crear archivo .env con claves
+#NEWS_API_KEY=tu_clave_newsapi
+#WEATHER_API_KEY=tu_clave_openweathermap
+
+
+## Ejecucion
+
+python main.py
+python -m weather_news_dashboard.test
+
+📤 Salida del Programa
+Muestra información del clima y noticias en consola.
+
+Guarda un archivo reporte_diario.json con el resumen.
+
+Opcionalmente envía un correo con los datos.
+
+🗂️ Estado del Proyecto
+✅ Módulo noticias (news_service.py)
+✅ Dashboard funcional (dashboard.py)
+✅ Configuración Git y estructura lista
+🔄 En integración con módulos de clima y correo
+
+💡 Créditos
+Hecho por estudiantes de INACAP para la evaluación 2.1.2.1 – Integración de APIs.
