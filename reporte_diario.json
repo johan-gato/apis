@@ -1,13 +1,13 @@
 {
-    "fecha": "2025-05-30T14:01:10.702006",
+    "fecha": "2025-05-30T16:12:39.330321",
     "pais": "CL",
     "ciudad": "la serena",
     "clima": {
         "ciudad": "La Serena",
         "temperatura": 16.73,
-        "humedad": 63,
+        "humedad": 72,
         "descripcion": "cielo claro",
-        "viento": 3.6
+        "viento": 5.66
     },
     "noticias": [
         {
