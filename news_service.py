@@ -63,13 +63,18 @@ class NewsService:
         response = requests.get(url, params=params)
         return self._handle_response(response)
 
-    def resumen_noticias(self):
-        datos = self.get_top_headlines()
+    def resumen_noticias(self, page_size=5):
+        datos = self.get_top_headlines(page_size=page_size)
+
+        if not datos or datos.get("totalResults", 0) == 0:
+            logging.info("No se encontraron noticias con top-headlines. Probando con búsqueda libre.")
+            datos = self.search_news(query=self.pais, page_size=page_size)
+
         if not datos or not datos.get("articles"):
             return "No se encontraron noticias."
-        
+
         resumen = ""
-        for i, noticia in enumerate(datos["articles"][:5], 1):
+        for i, noticia in enumerate(datos["articles"][:page_size], 1):
             titulo = noticia.get("title", "Sin título")
             fuente = noticia.get("source", {}).get("name", "Fuente desconocida")
             resumen += f"{i}. {titulo} ({fuente})\n"

@@ -4,7 +4,11 @@
 {'nombre': 'Chile', 'capital': 'Santiago', 'poblacion': 19116209, 'moneda': 'CLP'}
 
 🌤️ Clima actual:
-{'ciudad': 'Santiago', 'temperatura': 17.06, 'humedad': 50, 'descripcion': 'cielo claro', 'viento': 2.06}
+{'ciudad': 'Santiago', 'temperatura': 17.62, 'humedad': 47, 'descripcion': 'cielo claro', 'viento': 1.54}
 
 📰 Noticias destacadas:
-No se encontraron noticias.
+- Paneles solares que limpian a otros paneles solares: la industria fotovoltaica ha entrado en su fase autorreplicante (Xataka.com)
+- Lo más importante de la vida, según Google, dos décadas después (Microsiervos.com)
+- Google I/O 2025: sigue la gran conferencia de Google en directo (Xataka.com)
+- El gran reset bursátil de Telefónica: la llegada de Murtra le coloca en máximos de los últimos tres años (Xataka.com)
+- El rover Curiosity lleva 12 años escalando una montaña de Marte. Acaba de mandar un vídeo impresionante desde arriba (Xataka.com)

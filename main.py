@@ -11,7 +11,12 @@ def generar_reporte():
     weather = obtener_clima('Santiago')
 
     news_service = NewsService()
-    noticias_data = news_service.get_top_headlines(country="cl")
+    noticias_data = news_service.get_top_headlines(country="cl", page_size=5)
+
+    if not noticias_data or noticias_data.get("totalResults", 0) == 0:
+        print("No hay resultados en top-headlines. Buscando con search_news...")
+        noticias_data = news_service.search_news(query="Chile", page_size=5)
+
     noticias = noticias_data.get("articles", [])[:5] if noticias_data else []
 
     noticias_texto = "\n".join(
