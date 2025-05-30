@@ -1,13 +1,13 @@
 {
-    "fecha": "2025-05-30T16:12:39.330321",
+    "fecha": "2025-05-30T16:17:47.961307",
     "pais": "CL",
-    "ciudad": "la serena",
+    "ciudad": "antofagasta",
     "clima": {
-        "ciudad": "La Serena",
-        "temperatura": 16.73,
-        "humedad": 72,
-        "descripcion": "cielo claro",
-        "viento": 5.66
+        "ciudad": "Antofagasta",
+        "temperatura": 16.6,
+        "humedad": 78,
+        "descripcion": "muy nuboso",
+        "viento": 3.27
     },
     "noticias": [
         {
@@ -76,5 +76,19 @@
             "content": "El infatigable rover Curiosity ha enviado a la Tierra un nuevo vídeo de Marte que es, sencillamente, una joya: una panorámica inmersiva de 30 segundos que nos transporta directamente a las laderas de… [+3121 chars]"
         }
     ],
-    "noticias_relacionadas_con_clima": []
+    "noticias_relacionadas_con_clima": [
+        {
+            "source": {
+                "id": null,
+                "name": "Xatakamovil.com"
+            },
+            "author": "Miguel Jorge",
+            "title": "TikTok necesita mucha agua para alimentar a su IA. Eso es un problema muy gordo para dos naciones: Brasil y Chile",
+            "description": "La escena pasa desapercibida para la práctica mayoría de su monstruosa base de usuarios, sin embargo, cada vez que alguien abre la aplicación de TikTok desde su móvil, se producen dos cosas. Una, que los algoritmos de la red social se ponen en marcha. La otra…",
+            "url": "https://www.xatakamovil.com/conectividad/tiktok-necesita-mucha-agua-para-alimentar-a-su-ia-eso-problema-muy-gordo-para-dos-naciones-brasil-chile",
+            "urlToImage": "https://i.blogs.es/0cf050/671d6972fb0f3d677a906946_qo2qrlbj6845oh2o8uyhauhdspuu342ueqxmzxsttvk8as6e-out-0/840_560.png",
+            "publishedAt": "2025-05-26T16:01:47Z",
+            "content": "La escena pasa desapercibida para la práctica mayoría de su monstruosabase de usuarios, sin embargo, cada vez que alguien abre la aplicación de TikTok desde su móvil, se producen dos cosas. Una, que … [+6543 chars]"
+        }
+    ]
 }

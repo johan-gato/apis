@@ -59,8 +59,10 @@ def enviar_reporte(pais, ciudad, correo, tipo_envio, valor_extra, estado_label):
             except Exception as e:
                 if "535" in str(e):
                     estado_label.config(text="❌ Error autenticación SMTP: revisa credenciales.")
+                elif "10060" in str(e):
+                    estado_label.config(text="❌ No se pudo conectar al servidor SMTP. Revisa tu conexión, firewall o antivirus.")
                 else:
-                    estado_label.config(text=f"❌ Error al enviar: {e}")
+                    estado_label.config(text=f"❌ Error al enviar el correo: {e}")
 
         threading.Thread(target=tarea_envio, daemon=True).start()
 
@@ -70,7 +72,7 @@ def enviar_reporte(pais, ciudad, correo, tipo_envio, valor_extra, estado_label):
 def iniciar_interfaz():
     root = tk.Tk()
     root.title("📧 Envío de Reporte Climático")
-    root.geometry("500x420")
+    root.geometry("500x430")
     root.resizable(False, False)
 
     fuente = ("Segoe UI", 10)
@@ -88,16 +90,32 @@ def iniciar_interfaz():
     entry_correo.pack()
 
     ttk.Label(root, text="⏰ ¿Cuándo enviar el correo?", font=fuente).pack(pady=10)
-    combo_opciones = ttk.Combobox(root, values=["Ahora", "En X minutos", "Fecha específica"])
+    combo_opciones = ttk.Combobox(root, values=["Ahora", "En X minutos", "Fecha específica"], state="readonly")
     combo_opciones.current(0)
     combo_opciones.pack()
 
-    entry_valor = ttk.Entry(root)
+    entry_valor = ttk.Entry(root, state="disabled")
     entry_valor.pack(pady=5)
-    entry_valor.insert(0, "Ej: 10 o 31-05-2025 08:00")
 
     estado_label = ttk.Label(root, text="", font=fuente, foreground="blue")
     estado_label.pack(pady=10)
+
+    def actualizar_estado_entry(event=None):
+        seleccion = combo_opciones.get()
+        if seleccion == "Ahora":
+            entry_valor.config(state="disabled")
+            entry_valor.delete(0, tk.END)
+        elif seleccion == "En X minutos":
+            entry_valor.config(state="normal")
+            entry_valor.delete(0, tk.END)
+            entry_valor.insert(0, "10")
+        elif seleccion == "Fecha específica":
+            entry_valor.config(state="normal")
+            entry_valor.delete(0, tk.END)
+            entry_valor.insert(0, "31-05-2025 08:00")
+
+    combo_opciones.bind("<<ComboboxSelected>>", actualizar_estado_entry)
+    actualizar_estado_entry()
 
     def al_enviar():
         pais = entry_pais.get().strip()

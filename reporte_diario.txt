@@ -1,6 +1,6 @@
-Reporte Diario - 2025-05-30 16:12
-País: CL | Ciudad: la serena
-Clima: Cielo claro | Temp: 16.73°C
+Reporte Diario - 2025-05-30 16:17
+País: CL | Ciudad: antofagasta
+Clima: Muy nuboso | Temp: 16.6°C
 
 Principales noticias:
 1. Paneles solares que limpian a otros paneles solares: la industria fotovoltaica ha entrado en su fase autorreplicante (Xataka.com)
@@ -18,3 +18,5 @@ Principales noticias:
 5. El rover Curiosity lleva 12 años escalando una montaña de Marte. Acaba de mandar un vídeo impresionante desde arriba (Xataka.com)
    URL: https://www.xataka.com/espacio/rover-curiosity-lleva-12-anos-escalando-montana-marte-acaba-mandar-video-impresionante-arriba
 
+Noticias relacionadas con el clima:
+- TikTok necesita mucha agua para alimentar a su IA. Eso es un problema muy gordo para dos naciones: Brasil y Chile
