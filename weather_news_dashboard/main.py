@@ -1,39 +1,36 @@
-import requests
-from weather_news_dashboard.gmail_service import enviar_reporte
-import time
+# main.py
 
-# API KEYS
-weather_key = "TU_API_KEY_OPENWEATHER"
-news_key = "TU_API_KEY_NEWSAPI"
+from gmail_service import enviar_correo
+from country_service import get_country_data
+from weather_service import get_weather
+from news_service import get_news
 
-pais = input("Ingresa un país: ")
+def generar_reporte():
+    country_data = get_country_data('CL')  # Chile
+    weather = get_weather('Santiago')
+    noticias = get_news('Chile')
 
-# === REST Countries ===
-datos_pais = requests.get(f"https://restcountries.com/v3.1/name/{pais}").json()[0]
-capital = datos_pais["capital"][0]
-codigo_pais = datos_pais["cca2"].lower()
+    reporte = f"""🧾 REPORTE AUTOMÁTICO:
+    
+🌎 Datos del país:
+{country_data}
 
-# === Clima ===
-weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={capital}&appid={weather_key}&units=metric&lang=es"
-clima = requests.get(weather_url).json()
-info_clima = f"Clima en {capital}:\n{clima['weather'][0]['description'].capitalize()}, {clima['main']['temp']}°C"
+🌤️ Clima actual:
+{weather}
 
-# === Noticias ===
-news_url = f"https://newsapi.org/v2/top-headlines?country={codigo_pais}&apiKey={news_key}"
-noticias = requests.get(news_url).json()
-titulares = "\n".join([f"- {n['title']}" for n in noticias["articles"][:5]])
-info_noticias = f"\nNoticias recientes de {pais}:\n{titulares}"
+📰 Noticias destacadas:
+{noticias}
+"""
+    return reporte
 
-# === Reporte final ===
-reporte = f"{info_clima}\n\n{info_noticias}"
+if __name__ == "__main__":
+    print("Generando reporte completo...")
+    reporte = generar_reporte()
 
-# === Espera 5 minutos y envía por Gmail ===
-print("Esperando 5 minutos para enviar el correo...")
-time.sleep(300)  # 5 minutos
-enviar_reporte(
-    destinatario="destinatario@correo.com",
-    asunto=f"Reporte diario de {capital}, {pais}",
-    cuerpo=reporte,
-    remitente="tu_correo@gmail.com",
-    clave_app="tu_clave_app_gmail"
-)
+    with open("reporte_final.txt", "w", encoding='utf-8') as archivo:
+        archivo.write(reporte)
+
+    print("Reporte generado. Guardado en reporte_final.txt.")
+
+    destinatario = "destinatario@correo.com"
+    enviar_correo(reporte, destinatario)
