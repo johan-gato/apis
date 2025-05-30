@@ -1,0 +1,80 @@
+{
+    "fecha": "2025-05-30T13:23:34.905029",
+    "pais": "CL",
+    "capital": "Santiago",
+    "clima": {
+        "ciudad": "Santiago",
+        "temperatura": 18.18,
+        "humedad": 47,
+        "descripcion": "cielo claro",
+        "viento": 2.06
+    },
+    "noticias": [
+        {
+            "source": {
+                "id": null,
+                "name": "Xataka.com"
+            },
+            "author": "Alejandro Alcolea",
+            "title": "Paneles solares que limpian a otros paneles solares: la industria fotovoltaica ha entrado en su fase autorreplicante",
+            "description": "Maximizar el rendimiento de los paneles solares es uno de los grandes retos de la industria fotovoltaica. Pero es algo que no se limita a hacer paneles más eficientes, sino a ingeniar maneras de que éstos se mantengan limpios por más tiempo. Porque el gran en…",
+            "url": "https://www.xataka.com/energia/paneles-solares-que-limpian-otros-paneles-solares-vuelta-tuerca-para-maximizar-produccion-entornos-hostiles",
+            "urlToImage": "https://i.blogs.es/bc0d82/captura-de-pantalla-2025-05-05-a-las-12.34.06/840_560.jpeg",
+            "publishedAt": "2025-05-10T16:00:04Z",
+            "content": "Maximizar el rendimiento de los paneles solares es uno de los grandes retos de la industria fotovoltaica. Pero es algo que no se limita a hacer paneles más eficientes, sino a ingeniar maneras de que … [+3623 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Microsiervos.com"
+            },
+            "author": "alvy@microsiervos.com (Alvy)",
+            "title": "Lo más importante de la vida, según Google, dos décadas después",
+            "description": "Me crucé por casualidad por esta vieja anotación y he querido ver cual es el zeitgeist actual. La verdad es que han cambiado casi todas las expresiones populares y más buscadas. De modo que también han cambiado las sugerencias del «autocompletar» del motor de…",
+            "url": "https://www.microsiervos.com/archivo/microciervadas-varias/lo-mas-importante-de-la-vida-google-decadas-despues.html",
+            "urlToImage": "https://img.microsiervos.com/images2025/Lo-mas-importante-en-la-vida.jpg",
+            "publishedAt": "2025-05-02T22:36:22Z",
+            "content": "Por @Alvy 3 de mayo de 2025\r\nMe crucé por casualidad por esta vieja anotación y he querido ver cual es el zeitgeist actual. La verdad es que han cambiado casi todas las expresiones populares y más bu… [+790 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Xataka.com"
+            },
+            "author": "Jose García",
+            "title": "Google I/O 2025: sigue la gran conferencia de Google en directo",
+            "description": "Un año más, llega una de las citas más importantes del año con Google. Hoy tendrá lugar el Google I/O 2025, una de las conferencias (realmente una serie de conferencias) más importantes del año que, como no podría ser de otra manera, podrás seguirla en vivo y…",
+            "url": "https://www.xataka.com/nuevo/google-i-2025-seguir-conferencia-directo",
+            "urlToImage": "https://i.blogs.es/fde6b7/google-io/840_560.jpeg",
+            "publishedAt": "2025-05-20T13:46:46Z",
+            "content": "Un año más, llega una de las citas más importantes del año con Google. Hoy tendrá lugar el Google I/O 2025, una de las conferencias (realmente una serie de conferencias) más importantes del año que, … [+2508 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Xataka.com"
+            },
+            "author": "Javier Lacort",
+            "title": "El gran reset bursátil de Telefónica: la llegada de Murtra le coloca en máximos de los últimos tres años",
+            "description": "La cotización de Telefónica acaba de alcanzar los 4,5 euros, su nivel más alto en tres años. Justo cuando el nuevo presidente ejecutivo, Marc Murtra, cumple sus primeros cien días al frente de la teleco.\n<!-- BREAK 1 -->\nPor qué es importante. Desde el nombra…",
+            "url": "https://www.xataka.com/empresas-y-economia/gran-reset-bursatil-telefonica-llegada-murtra-le-coloca-maximos-ultimos-tres-anos",
+            "urlToImage": "https://i.blogs.es/f3a756/celebracion-junta-de-accionistas-2025-1/840_560.jpeg",
+            "publishedAt": "2025-05-08T09:26:02Z",
+            "content": "La cotización de Telefónica acaba de alcanzar los 4,5 euros, su nivel más alto en tres años. Justo cuando el nuevo presidente ejecutivo, Marc Murtra, cumple sus primeros cien días al frente de la tel… [+3747 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Xataka.com"
+            },
+            "author": "Matías S. Zavia",
+            "title": "El rover Curiosity lleva 12 años escalando una montaña de Marte. Acaba de mandar un vídeo impresionante desde arriba",
+            "description": "El infatigable rover Curiosity ha enviado a la Tierra un nuevo vídeo de Marte que es, sencillamente, una joya: una panorámica inmersiva de 30 segundos que nos transporta directamente a las laderas del monte Sharp. Míralo a pantalla completa porque esto es lo …",
+            "url": "https://www.xataka.com/espacio/rover-curiosity-lleva-12-anos-escalando-montana-marte-acaba-mandar-video-impresionante-arriba",
+            "urlToImage": "https://i.blogs.es/f1c77c/nasa-curiosity/840_560.jpeg",
+            "publishedAt": "2025-05-23T19:31:46Z",
+            "content": "El infatigable rover Curiosity ha enviado a la Tierra un nuevo vídeo de Marte que es, sencillamente, una joya: una panorámica inmersiva de 30 segundos que nos transporta directamente a las laderas de… [+3121 chars]"
+        }
+    ],
+    "noticias_relacionadas_con_clima": []
+}

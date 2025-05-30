@@ -79,7 +79,6 @@ EMAIL_PASSWORD=clave_o_contraseña_de_aplicacion
 ## 🚀 Uso
 python weather_service.py
 python country_service.py
-
 python main.py
 python -m weather_news_dashboard.test_news
 
@@ -89,6 +88,3 @@ Información meteorológica y noticias por consola.
 Archivo reporte_diario.json con resumen del día.
 
 (Opcional) Envío de correo con los datos — pendiente por implementar.
-
-
-
