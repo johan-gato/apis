@@ -4,7 +4,11 @@ from gmail_service import enviar_correo
 from country_service import obtener_info_pais
 from weather_service import obtener_clima
 from news_service import NewsService
-import os
+import re
+
+def validar_correo(correo):
+    patron = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    return re.match(patron, correo) is not None
 
 def generar_reporte():
     country_data = obtener_info_pais('CL')  # Chile
@@ -78,7 +82,7 @@ if __name__ == "__main__":
         exit(1)
 
     destinatario = input("✉️ Ingresa el correo del destinatario: ").strip()
-    if not destinatario:
+    if not destinatario or not validar_correo(destinatario):
         print("❌ Debes ingresar un correo válido.")
         exit(1)
 
@@ -93,4 +97,10 @@ if __name__ == "__main__":
     try:
         enviar_correo(reporte, destinatario)
     except Exception as e:
-        print(f"❌ Error al enviar el correo: {e}")
+        # Aquí detectamos y mostramos el error pero sin repetir el mensaje
+        error_msg = str(e)
+        if "535" in error_msg:
+            print("❌ Error de autenticación SMTP: Revisa usuario, contraseña y contraseña de aplicación.")
+            print("Más info: https://support.google.com/mail/?p=BadCredentials")
+        else:
+            print(f"❌ Error al enviar el correo: {e}")

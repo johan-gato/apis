@@ -4,7 +4,7 @@
 {'nombre': 'Chile', 'capital': 'Santiago', 'poblacion': 19116209, 'moneda': 'CLP'}
 
 🌤️ Clima actual:
-{'ciudad': 'Santiago', 'temperatura': 17.62, 'humedad': 47, 'descripcion': 'cielo claro', 'viento': 1.54}
+{'ciudad': 'Santiago', 'temperatura': 17.51, 'humedad': 49, 'descripcion': 'cielo claro', 'viento': 1.54}
 
 📰 Noticias destacadas:
 - Paneles solares que limpian a otros paneles solares: la industria fotovoltaica ha entrado en su fase autorreplicante (Xataka.com)
