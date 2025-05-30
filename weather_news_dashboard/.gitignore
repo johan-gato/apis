@@ -1,16 +1,37 @@
-# Entorno virtual
+```gitignore
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
 venv/
+ENV/
+env/
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# dotenv environment variables file
 .env
 
-# Archivos de sistema
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
 .DS_Store
 
-# Archivos de reporte
-reporte_diario.json
-
-# VSCode settings (opcional)
-.vscode/
+# Logs and databases
+*.log
+*.sqlite3
